@@ -1,7 +1,11 @@
 package com.miage.altea.battle_api.converter;
 
-import com.miage.altea.battle_api.bo.*;
+import com.miage.altea.battle_api.bo.BattlePokemon;
+import com.miage.altea.battle_api.bo.Pokemon;
+import com.miage.altea.battle_api.bo.PokemonType;
 import com.miage.altea.battle_api.service.PokemonTypeServiceImpl;
+import com.miage.altea.battle_api.utils.SequenceGenerator;
+import com.miage.altea.battle_api.utils.StatsCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +27,7 @@ public class PokemonConverter {
                 .defence(StatsCalculator.calculateStat(pokemonType.getStats().getDefense(),pokemon.getLevel()))
                 .speed(StatsCalculator.calculateStat(pokemonType.getStats().getSpeed(),pokemon.getLevel()))
                 .maxHp(StatsCalculator.calculateHP(pokemonType.getStats().getHp(),pokemon.getLevel()))
+                .id(SequenceGenerator.getNext())
                 .build();
     }
 

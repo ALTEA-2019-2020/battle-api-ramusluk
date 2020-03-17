@@ -3,7 +3,7 @@ package com.miage.altea.battle_api.service;
 import com.miage.altea.battle_api.bo.Battle;
 import com.miage.altea.battle_api.bo.BattlePokemon;
 import com.miage.altea.battle_api.bo.BattleTrainer;
-import com.miage.altea.battle_api.bo.StatsCalculator;
+import com.miage.altea.battle_api.utils.StatsCalculator;
 import com.miage.altea.battle_api.converter.TrainerConverter;
 import com.miage.altea.battle_api.exceptions.ApplicationException;
 import com.miage.altea.battle_api.repository.BattleRepository;

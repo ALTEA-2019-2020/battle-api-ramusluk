@@ -1,4 +1,6 @@
-package com.miage.altea.battle_api.bo;
+package com.miage.altea.battle_api.utils;
+
+import com.miage.altea.battle_api.bo.BattlePokemon;
 
 import static java.lang.Math.round;
 
