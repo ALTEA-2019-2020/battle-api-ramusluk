@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "b34723c3-2724-4256-9567-4ff4f59b9742",
+		"name": "battle-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9001/battles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c0a392e-1b9a-40d1-8148-1c4d708de05a",
+						"exec": [
+							"pm.test(\"Test uuid\", function () {\r",
+							"    var jsonData = pm.response.text();\r",
+							"    pm.expect(jsonData).to.have.lengthOf(36);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "7beb05f6-5c68-11ea-bc55-0242ac130003",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"trainerName\" : \"Ash\",\n\t\"opponentName\" : \"Misty\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/battles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"battles"
+					]
+				},
+				"description": "post"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/battles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c0a392e-1b9a-40d1-8148-1c4d708de05a",
+						"exec": [
+							"pm.test(\"Test uuid\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].uuid).to.have.lengthOf(36);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "7beb05f6-5c68-11ea-bc55-0242ac130003",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"trainerName\" : \"Ash\",\n\t\"opponentName\" : \"Misty\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/battles/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"battles",
+						""
+					]
+				},
+				"description": "GET"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
