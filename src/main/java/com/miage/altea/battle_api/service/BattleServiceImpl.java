@@ -29,7 +29,7 @@ public class BattleServiceImpl implements BattleService {
     }
 
     @Override
-    public String createBattle(String trainerName, String opponentName) {
+    public Battle createBattle(String trainerName, String opponentName) {
         BattleTrainer trainer = trainerConverter.trainerToBattleTrainer(trainersService.getTrainerEntity(trainerName));
         BattleTrainer opponent = trainerConverter.trainerToBattleTrainer(trainersService.getTrainerEntity(opponentName));
         if(trainer == null)
@@ -40,7 +40,7 @@ public class BattleServiceImpl implements BattleService {
         String uuid = UUID.randomUUID().toString();
         Battle battle = new Battle(trainer, opponent, uuid);
         this.battleRepository.addBattle(battle);
-        return uuid;
+        return battle;
     }
 
     private void setFirstPlayer(BattleTrainer trainer, BattleTrainer opponent) {

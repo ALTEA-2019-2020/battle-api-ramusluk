@@ -25,9 +25,8 @@ public class BattlesController {
 
     @CrossOrigin
     @PostMapping()
-    public ResponseEntity<String> battles(@RequestBody Map<String, String> body) {
-        String trainerName = body.get("trainerName");
-        String opponentName = body.get("opponentName");
+    public ResponseEntity<?> battles(@RequestParam(value = "trainer")String trainerName, @RequestParam(value = "opponent")String opponentName) {
+
         return ResponseEntity.ok().body(this.battleService.createBattle(trainerName, opponentName));
     }
     @CrossOrigin
@@ -41,8 +40,7 @@ public class BattlesController {
         return ResponseEntity.ok().body(this.battleService.getAllBattles());
     }
 
-
-
+    @CrossOrigin
     @PostMapping(value = "/{uuid}/{trainerName}/attack")
     public ResponseEntity<Battle> attack(@PathVariable(value = "uuid") String uuid, @PathVariable(value = "trainerName") String trainerName){
         return ResponseEntity.ok().body(this.battleService.attack(uuid, trainerName));
