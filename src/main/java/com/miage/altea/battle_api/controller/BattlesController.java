@@ -17,22 +17,25 @@ public class BattlesController {
 
     private BattleServiceImpl battleService;
 
+
     @Autowired
     public BattlesController(BattleServiceImpl battleService) {
         this.battleService = battleService;
     }
 
+    @CrossOrigin
     @PostMapping()
     public ResponseEntity<String> battles(@RequestBody Map<String, String> body) {
         String trainerName = body.get("trainerName");
         String opponentName = body.get("opponentName");
         return ResponseEntity.ok().body(this.battleService.createBattle(trainerName, opponentName));
     }
+    @CrossOrigin
     @GetMapping(value = "/{uuid}")
     public ResponseEntity<Battle> getBattle(@PathVariable(value = "uuid")String uuid){
         return ResponseEntity.ok().body(this.battleService.getBattle(uuid));
     }
-
+    @CrossOrigin
     @GetMapping()
     public ResponseEntity<List<Battle>> getAllBattles() {
         return ResponseEntity.ok().body(this.battleService.getAllBattles());
